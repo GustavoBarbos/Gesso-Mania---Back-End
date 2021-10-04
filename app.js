@@ -5,6 +5,8 @@ require('./config/db.config')
 const VendaRoute = require('./routes/venda.route')
 const UserRoute = require('./routes/signup.route')
 const LoginRoute = require('./routes/login.route')
+const OrcamentoRoute = require('./routes/orcamento.route')
+
 
 const loginMiddleware = require('./middlewares/login.middleware')
 
@@ -24,11 +26,12 @@ app.use(cors())
 app.use('/', LoginRoute)
 
 
+
 app.use(loginMiddleware)
 
 // rotas privadas 
 
-
+app.use('/', OrcamentoRoute)
 app.use('/', VendaRoute)
 app.use('/', UserRoute)
 

@@ -76,7 +76,6 @@ route.put('/vendas/:id/:idprodutos', async (req, res) => {
     } catch (error) {
         res.status(400).json({ msg: "Error" })
     }
-
 })
 
 
