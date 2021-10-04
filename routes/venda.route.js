@@ -14,4 +14,20 @@ route.get('/vendas', async (req,res) => {
 
 })
 
+route.post('/vendas', async (req,res) => {
+
+    const payload = req.body
+    try {
+        
+        const venda = await Venda.create(payload)
+        res.status(201).json(venda)
+
+    } catch (error) {
+
+        res.status(500).json({msg: "Error"})
+
+    }
+
+})
+
 module.exports = route
