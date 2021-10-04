@@ -49,8 +49,6 @@ route.delete('/vendas/:id/:idprodutos', async (req, res) => {
 
     const { id, idprodutos } = req.params
 
-
-
     try {
   
         await Venda.updateOne( { _id: id }, { $pull: { produtos: { _id: { $eq : idprodutos} } } } )
@@ -60,6 +58,28 @@ route.delete('/vendas/:id/:idprodutos', async (req, res) => {
     }
 
 })
+
+route.put('/vendas/:id/:idprodutos', async (req, res) => {
+
+    const { id, idprodutos } = req.params
+    const payload = req.body
+  
+    try {
+
+        await Venda.updateOne(
+            { _id: id, "produtos._id": idprodutos }, 
+            { $set: { "produtos.$.quantidade" : payload.quantidade } }, {new:true} 
+            ) 
+        
+        res.status(200).json({msg: `alterado com sucesso`})
+
+    } catch (error) {
+        res.status(400).json({ msg: "Error" })
+    }
+
+})
+
+
 
 
 module.exports = route
