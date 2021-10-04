@@ -4,8 +4,9 @@ const login = (req, res, next) => {
 
 const token = req.get('Authorization')
 
+
 if(!token){
-    res.status(401).json({msg : `token inválido`})
+    res.status(400).json({msg : `token inválido`})
 }
 
 const verifytoken = token.split(' ')[1]

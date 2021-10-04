@@ -24,7 +24,10 @@ app.use('/', LoginRoute)
 
 
 app.use(loginMiddleware)
+
 // rotas privadas 
+
+
 
 app.use('/', UserRoute)
 
