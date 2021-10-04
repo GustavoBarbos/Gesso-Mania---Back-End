@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose')
 
-const VendasSchema = new Schema(
+const VendaSchema = new Schema(
    
     {
         vendedor : String,
@@ -11,7 +11,7 @@ const VendasSchema = new Schema(
         quantidade: {type: Number,required:true},
         valorUnitário: {type: Number, required: true},
         
-        }],
+        }], 
 
         data: { type : Date, required: true },
         valor_total: { type : Number, required: true },
@@ -20,4 +20,4 @@ const VendasSchema = new Schema(
       
 )
 
-module.exports = model("Vendas", VendasSchema)
+module.exports = model("Venda", VendaSchema)
