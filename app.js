@@ -6,6 +6,7 @@ const VendaRoute = require('./routes/venda.route')
 const UserRoute = require('./routes/signup.route')
 const LoginRoute = require('./routes/login.route')
 const OrcamentoRoute = require('./routes/orcamento.route')
+const ProdutoRoute = require('./routes/produto.route')
 
 
 const loginMiddleware = require('./middlewares/login.middleware')
@@ -34,6 +35,7 @@ app.use(loginMiddleware)
 app.use('/', OrcamentoRoute)
 app.use('/', VendaRoute)
 app.use('/', UserRoute)
+app.use('/', ProdutoRoute)
 
 
 
