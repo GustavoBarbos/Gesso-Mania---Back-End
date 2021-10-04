@@ -1,6 +1,0 @@
-PORT = 5000
-
-MONGO_URI = mongodb+srv://gustavobs:22722722@cluster0.naiwk.mongodb.net/gessoMania?retryWrites=true&w=majority
-
-SECRET_JWT = ^t$yJQTZOymdl@cfgsLuSAsv*Z0C2*&c^Gr 
-
