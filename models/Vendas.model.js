@@ -13,7 +13,7 @@ const VendasSchema = new Schema(
         
         }],
 
-        data: { type:String, required: true },
+        data: { type : Date, required: true },
         valor_total: { type : Number, required: true },
         }
         
