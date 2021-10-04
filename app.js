@@ -2,6 +2,7 @@ require('dotenv').config()
 require('./config/db.config')
 
 // Rotas
+const VendaRoute = require('./routes/venda.route')
 const UserRoute = require('./routes/signup.route')
 const LoginRoute = require('./routes/login.route')
 
@@ -28,7 +29,7 @@ app.use(loginMiddleware)
 // rotas privadas 
 
 
-
+app.use('/', VendaRoute)
 app.use('/', UserRoute)
 
 
