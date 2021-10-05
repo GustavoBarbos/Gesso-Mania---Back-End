@@ -15,7 +15,7 @@ route.get('/produtos', async (req,res)=>{
     }
 
 })
-
+//criar um novo produto
 route.post('/produtos' , async (req,res)=>{
     const payload = req.body
     try {
@@ -25,7 +25,7 @@ route.post('/produtos' , async (req,res)=>{
         res.status(500).json(error)
     }
 })
-
+//deletar um produto do estoque
 route.delete('/produtos/:id' , async (req,res)=>{
     const {id} = req.params
     try {
@@ -35,13 +35,12 @@ route.delete('/produtos/:id' , async (req,res)=>{
         res.status(500).json(error)
     }
 })
-
+//alterar a quantidade de um produto no estoque após a venda
 route.put('/produtos/:name' , async (req,res)=>{
-    const {name} = req.params
-    const payload = req.body
+    const {name} = req.params // nome do produto que será removido
+    const payload = req.body  //quantidade que será removida no estoque
     const produto = await Produto.findOne({"name":name})
     const {quantidade_em_estoque} = produto
-    console.log(quantidade_em_estoque)
 
     const result = quantidade_em_estoque - payload.quantidade
 
@@ -51,6 +50,29 @@ route.put('/produtos/:name' , async (req,res)=>{
     } catch (error) {
         res.status(500).json(error)
     }
+})
+
+//no estoque, alterar o produto
+
+route.put('/produtos/estoque/:id', async (req,res)=>{
+    const {id} = req.params
+    const payload = req.body
+    console.log(payload)
+    const {name,quantidade_em_estoque,descricao,valor_de_venda,img_Url,modificado_por} = payload
+    try {
+        await Produto.findByIdAndUpdate(id,{$set:{"name":name,
+                                                "quantidade_em_estoque":quantidade_em_estoque,
+                                                "descricao":descricao,
+                                                "valor_de_venda":valor_de_venda,
+                                                "img_Url":img_Url,
+                                                "modficado_por":modificado_por}},
+                                                {new:true}
+                                        )
+        res.status(201).json({msg:'alterado com sucesso'})
+    } catch (error) {
+        res.status(500).json({msg:error})
+    }
+
 })
 
 
