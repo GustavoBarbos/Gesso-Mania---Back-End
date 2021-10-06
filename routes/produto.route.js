@@ -65,16 +65,33 @@ route.put('/produtos/estoque/:id', async (req,res)=>{
                                                 "descricao":descricao,
                                                 "valor_de_venda":valor_de_venda,
                                                 "img_Url":img_Url,
-                                                "modficado_por":modificado_por}},
+                                                "modificado_por":modificado_por}},
                                                 {new:true}
                                         )
         res.status(201).json({msg:'alterado com sucesso'})
     } catch (error) {
         res.status(500).json({msg:error})
     }
-
+    
+    
 })
 
+//rota produto metodo put para alterar apenas a quantidade do produto 
+route.put('/produtos/estoque/qtd/:name' , async (req,res)=>{
+    const {name} = req.params // nome do produto que será removido
+    const payload = req.body  //quantidade que será removida no estoque
+    const produto = await Produto.findOne({"name":name})
+    const {quantidade_em_estoque} = produto
+
+    const result = quantidade_em_estoque + payload.quantidade
+
+    try {
+        await Produto.findOneAndUpdate({"name":name}, {$set:{"quantidade_em_estoque":result}},{new:true})
+        res.status(201).json({msg:`produto acrescentado com sucesso`})
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
 
 
 
