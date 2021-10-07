@@ -87,6 +87,7 @@ route.put('/produtos/estoque/qtd/:name' , async (req,res)=>{
 
     try {
         await Produto.findOneAndUpdate({"name":name}, {$set:{"quantidade_em_estoque":result}},{new:true})
+        await Produto.findOneAndUpdate({"name":name}, {$set:{"modificado_por":payload.modificado_por}},{new:true})
         res.status(201).json({msg:`produto acrescentado com sucesso`})
     } catch (error) {
         res.status(500).json(error)
