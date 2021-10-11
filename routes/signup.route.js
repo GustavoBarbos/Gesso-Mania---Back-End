@@ -14,6 +14,16 @@ route.get('/signup', async (req,res) => {
     }
 })
 
+route.delete('/signup/:id', async (req, res)=>{
+    const {id} = req.params
+    try {
+        await User.findByIdAndDelete(id)
+        res.status(200).json({msg:"Usuário deletado"})
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 route.post('/signup', async (req,res) => {
 
     const {username , password} = req.body
