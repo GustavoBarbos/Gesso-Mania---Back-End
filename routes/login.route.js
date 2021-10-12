@@ -43,7 +43,9 @@ router.post('/login', async (req,res) => {
             }
         )
 
-            res.status(200).json({msg : payload,token})
+        const senhaAdmin = process.env.SENHA_ADMIN
+
+            res.status(200).json({msg : payload,token,senhaAdmin})
 
     } catch (error) {
         
