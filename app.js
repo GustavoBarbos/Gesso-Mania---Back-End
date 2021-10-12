@@ -27,12 +27,12 @@ app.use(cors())
 app.use('/', LoginRoute)
 
 
-app.use('/',ClienteRoute)
 app.use(loginMiddleware)
 
 // rotas privadas 
 
 
+app.use('/',ClienteRoute)
 app.use('/', OrcamentoRoute)
 app.use('/', VendaRoute)
 app.use('/', UserRoute)
