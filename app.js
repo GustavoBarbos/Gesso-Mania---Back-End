@@ -7,7 +7,7 @@ const UserRoute = require('./routes/signup.route')
 const LoginRoute = require('./routes/login.route')
 const OrcamentoRoute = require('./routes/orcamento.route')
 const ProdutoRoute = require('./routes/produto.route')
-
+const ClienteRoute = require('./routes/cliente.route')
 
 const loginMiddleware = require('./middlewares/login.middleware')
 
@@ -27,10 +27,11 @@ app.use(cors())
 app.use('/', LoginRoute)
 
 
-
+app.use('/',ClienteRoute)
 app.use(loginMiddleware)
 
 // rotas privadas 
+
 
 app.use('/', OrcamentoRoute)
 app.use('/', VendaRoute)
