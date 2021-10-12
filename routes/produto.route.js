@@ -35,6 +35,7 @@ route.delete('/produtos/:id' , async (req,res)=>{
         res.status(500).json(error)
     }
 })
+
 //alterar a quantidade de um produto no estoque após a venda
 route.put('/produtos/:name' , async (req,res)=>{
     const {name} = req.params // nome do produto que será removido
