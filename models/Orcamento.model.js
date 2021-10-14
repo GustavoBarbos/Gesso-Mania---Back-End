@@ -15,7 +15,8 @@ produtos: [{
     }],
 data:String,
 status: String,
-valor_total:Number
+valor_total:Number,
+frete:Number
 
 }
   
