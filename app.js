@@ -8,6 +8,7 @@ const LoginRoute = require('./routes/login.route')
 const OrcamentoRoute = require('./routes/orcamento.route')
 const ProdutoRoute = require('./routes/produto.route')
 const FechamentoRoute = require('./routes/fechamento.route')
+const DespesaRoute = require('./routes/despesa.route')
 
 
 const loginMiddleware = require('./middlewares/login.middleware')
@@ -26,7 +27,7 @@ app.use(cors())
 // Rotas Publicas
 
 app.use('/', LoginRoute)
-
+app.use('/', DespesaRoute)
 app.use('/',FechamentoRoute)
 app.use(loginMiddleware)
 
