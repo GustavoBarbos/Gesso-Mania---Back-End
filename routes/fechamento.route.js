@@ -29,7 +29,7 @@ route.get('/fechamento', async (req, res)=>{
         const fechamentos = await Fechamento.find()
         res.status(200).json(fechamentos)
     } catch (error) {
-        res.status(500).json({msg:"erro do gusta do kero"})
+        res.status(500).json({msg:"Erro"})
     }
 })
 
