@@ -4,7 +4,7 @@ const {Schema, model} = require('mongoose')
 const DespesaSchema = new Schema (
     {
         name:{type:String, required:true},
-        gasto:{type:Number},
+        gasto_total:{type:Number},
         data:Date,
         descricao:{type:String}
     }
