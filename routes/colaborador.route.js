@@ -28,7 +28,7 @@ route.get('/colaborador', async(req, res)=>{
 route.put('/colaborador/:id', async(req, res)=>{
     const {id} = req.params
     const payload = req.body
-    const {nome, cargo, ativo, data_de_entrada, data_de_saida,salario} = payload
+    const {nome, cargo, ativo, data_de_entrada, data_de_saida,salario,img} = payload
     try {
         await Colaborador.findByIdAndUpdate(id,
             {$set:{
@@ -37,7 +37,8 @@ route.put('/colaborador/:id', async(req, res)=>{
                 "ativo":ativo,
                 "data_de_entrada":data_de_entrada,
                 "data_de_saida":data_de_saida,
-                "salario":salario
+                "salario":salario,
+                "img" : img
             }}
             , {new:true})
         res.status(200).json(payload)
