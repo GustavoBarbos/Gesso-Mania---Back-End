@@ -67,6 +67,10 @@ route.put('/produtos/estoque/:id', async (req,res)=>{
                                                 "img_Url":img_Url,
                                                 "modificado_por":modificado_por,
                                                 "valor_de_compra": valor_de_compra}},
+
+                                               
+                                                
+
                                                 {new:true}
                                         )
         res.status(201).json({msg:'alterado com sucesso'})
