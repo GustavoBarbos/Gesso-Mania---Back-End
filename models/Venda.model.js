@@ -14,7 +14,7 @@ const VendaSchema = new Schema(
         }], 
 
         data: { type : Date, required: true },
-        valor_total: { type : Number, required: true },
+        valor_total: { type : Number, required: true }
         }
         
       
