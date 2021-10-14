@@ -29,15 +29,15 @@ app.use(cors())
 // Rotas Publicas
 
 app.use('/', LoginRoute)
-app.use('/', DespesaRoute)
-app.use('/',FechamentoRoute)
-app.use('/',CompraRoute)
-app.use('/',ColaboradorRoute)
 
 
 app.use(loginMiddleware)
 
 // rotas privadas 
+app.use('/', DespesaRoute)
+app.use('/',FechamentoRoute)
+app.use('/',CompraRoute)
+app.use('/',ColaboradorRoute)
 
 
 app.use('/', OrcamentoRoute)
