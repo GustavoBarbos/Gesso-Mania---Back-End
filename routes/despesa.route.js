@@ -26,7 +26,7 @@ route.get('/despesa', async(req,res)=>{
 route.delete('/despesa/:id', async(req,res)=>{
     const {id} = req.params
     try {
-        await Despesa.findByIdAndRemove(id)
+        await Despesa.findByIdAndDelete(id)
         res.status(200).json({msg:"despesa removida com sucesso"})
     } catch (error) {
         res.status(500).json({msg:"Erro ao deletar despesa"})
