@@ -3,8 +3,8 @@ const {Schema, model} = require('mongoose')
 
 const CompraSchema = new Schema (
     {
-        data:{type:Date, required},
-        valor_total_compra:{type:Number, required},
+        data:{type:Date, required:true},
+        valor_total_compra:{type:Number, required:true},
         compra_produtos:[
             {
                 name:String,
