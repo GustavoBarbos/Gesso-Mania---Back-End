@@ -58,7 +58,6 @@ route.put('/produtos/:name' , async (req,res)=>{
 route.put('/produtos/estoque/:id', async (req,res)=>{
     const {id} = req.params
     const payload = req.body
-    console.log(payload)
     const {name,quantidade_em_estoque,descricao,valor_de_venda,img_Url,modificado_por} = payload
     try {
         await Produto.findByIdAndUpdate(id,{$set:{"name":name,

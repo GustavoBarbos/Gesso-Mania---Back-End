@@ -8,7 +8,8 @@ const ProdutoSchema = new Schema (
         valor_de_venda:{type:Number},
         descricao:{type:String},
         img_Url:{type:String},
-        modificado_por:{type:String}
+        modificado_por:{type:String},
+        valor_de_compra:{type:Number}
     }
 )
 

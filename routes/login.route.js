@@ -14,7 +14,6 @@ router.post('/login', async (req,res) => {
     try {
 
         const user = await User.findOne({username})
-        console.log(user)
         if(!user){
             throw new Error('Usuário não existente')
         }
