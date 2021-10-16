@@ -12,7 +12,11 @@ const CompraSchema = new Schema (
                 valor_de_compra:Number,
                 quantidade:Number
             }
-        ]
+        ],
+        user: {type : String, required : true}
+    },
+    {
+        timestamps: true
     }
 )
 
