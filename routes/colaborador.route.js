@@ -10,7 +10,7 @@ route.post('/colaborador', async(req, res)=>{
         await Colaborador.create(payload)
         res.status(200).json(payload)
     } catch (error) {
-        res.status(500).json({msg:"Erro ao criar novo colaborador"})
+        res.status(500).json({msg:error})
     }
 })
 
