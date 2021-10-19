@@ -58,11 +58,12 @@ route.delete('/colaborador/:id', async (req, res)=>{
     }
 })
 
-router.post('/colaborador/foto/:id', uploadImage.single('image'), async (req, res) => {
+route.post('/colaborador/foto/:id', uploadImage.single('image'), async (req, res) => {
+  
     const { path } = req.file;
     const { id } = req.params;
     try {
-      const updatedColaborador = await User.findByIdAndUpdate(id, { profilePicture: path }, { new: true });
+      const updatedColaborador = await Colaborador.findByIdAndUpdate(id, { img: path }, { new: true });
       res.status(200).json(updatedColaborador);
     } catch (error) {
       res.status(500).json(error);
