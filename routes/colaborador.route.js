@@ -1,5 +1,6 @@
 const {Router} = require('express')
 const Colaborador = require('../models/Colaborador.model')
+const uploadImage = require('../config/cloudinary.config')
 
 const route = Router()
 
@@ -56,5 +57,16 @@ route.delete('/colaborador/:id', async (req, res)=>{
         res.status(500).json({msg:'Erro ao deletar'})
     }
 })
+
+router.post('/colaborador/foto/:id', uploadImage.single('image'), async (req, res) => {
+    const { path } = req.file;
+    const { id } = req.params;
+    try {
+      const updatedColaborador = await User.findByIdAndUpdate(id, { profilePicture: path }, { new: true });
+      res.status(200).json(updatedColaborador);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  });
 
 module.exports = route
